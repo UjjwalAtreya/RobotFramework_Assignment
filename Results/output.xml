@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.7 on win32)" generated="20221011 09:00:37.143" rpa="false" schemaversion="3">
+<suite id="s1" name="DashboardTest" source="C:\Users\User\Downloads\Robot-Framework-master\Robot-Framework-master\Tests\DashboardTest.robot">
+<test id="s1-t1" name="Verify if the user is able to search in the Dashboard" line="13">
+<kw name="Opening Browser" library="Common">
+<arg>${site_url}</arg>
+<arg>${browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${site_url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221011 09:00:37.390" level="INFO">Opening browser 'Chrome' to base url 'https://talent-recruitment.test.bluestonepim.com/index.html'.</msg>
+<status status="PASS" starttime="20221011 09:00:37.390" endtime="20221011 09:00:42.302"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${LoginEmailInputBox}</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221011 09:00:42.302" endtime="20221011 09:00:42.362"/>
+</kw>
+<status status="PASS" starttime="20221011 09:00:37.389" endtime="20221011 09:00:42.362"/>
+</kw>
+<kw name="Input Username" library="LoginPage">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LoginEmailInputBox}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221011 09:00:42.363" level="INFO">Typing text 'admin@email.com' into text field 'id::r0:'.</msg>
+<status status="PASS" starttime="20221011 09:00:42.363" endtime="20221011 09:00:42.577"/>
+</kw>
+<status status="PASS" starttime="20221011 09:00:42.363" endtime="20221011 09:00:42.577"/>
+</kw>
+<kw name="Input Password" library="LoginPage">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LoginPasswordInputBox}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221011 09:00:42.579" level="INFO">Typing text 'thisisverysecure' into text field 'id::r1:'.</msg>
+<status status="PASS" starttime="20221011 09:00:42.578" endtime="20221011 09:00:42.779"/>
+</kw>
+<status status="PASS" starttime="20221011 09:00:42.578" endtime="20221011 09:00:42.779"/>
+</kw>
+<kw name="Click Login" library="LoginPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LoginButton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221011 09:00:42.781" level="INFO">Clicking element '//button[contains(text(),'Log in')]'.</msg>
+<status status="PASS" starttime="20221011 09:00:42.780" endtime="20221011 09:00:42.852"/>
+</kw>
+<status status="PASS" starttime="20221011 09:00:42.780" endtime="20221011 09:00:42.853"/>
+</kw>
+<kw name="Verify the search returns exact value" library="Dashboard">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${SearchInputBox}</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221011 09:00:42.853" endtime="20221011 09:00:43.555"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SearchInputBox}</arg>
+<arg>${SearchKeyWord}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221011 09:00:43.556" level="INFO">Typing text 'Jaime' into text field 'id:search-input'.</msg>
+<status status="PASS" starttime="20221011 09:00:43.556" endtime="20221011 09:00:43.799"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221011 09:00:45.809" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221011 09:00:43.799" endtime="20221011 09:00:45.809"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>None</arg>
+<arg>BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221011 09:00:45.810" level="INFO">Sending key(s) ('BACKSPACE',) to page.</msg>
+<msg timestamp="20221011 09:00:45.811" level="INFO">Pressing special key BACKSPACE to browser.</msg>
+<msg timestamp="20221011 09:00:45.811" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20221011 09:00:45.809" endtime="20221011 09:00:45.854"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${SearchResult}</arg>
+<arg>${SearchKeyWord}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20221011 09:00:45.917" level="INFO">Element '(//div[@class='MuiDataGrid-cellContent'])[2]' contains text 'Jaime'.</msg>
+<status status="PASS" starttime="20221011 09:00:45.854" endtime="20221011 09:00:45.917"/>
+</kw>
+<status status="PASS" starttime="20221011 09:00:42.853" endtime="20221011 09:00:45.918"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20221011 09:00:45.920" endtime="20221011 09:00:48.026"/>
+</kw>
+<doc>This test case verifies if the user is able to search in dashoard page</doc>
+<tag>Regression</tag>
+<status status="PASS" starttime="20221011 09:00:37.388" endtime="20221011 09:00:48.028"/>
+</test>
+<test id="s1-t2" name="Verify if user is able to swith from light to dark mode" line="24">
+<kw name="Opening Browser" library="Common">
+<arg>${site_url}</arg>
+<arg>${browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${site_url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221011 09:00:48.035" level="INFO">Opening browser 'Chrome' to base url 'https://talent-recruitment.test.bluestonepim.com/index.html'.</msg>
+<status status="PASS" starttime="20221011 09:00:48.035" endtime="20221011 09:00:51.113"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${LoginEmailInputBox}</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221011 09:00:51.113" endtime="20221011 09:00:51.269"/>
+</kw>
+<status status="PASS" starttime="20221011 09:00:48.033" endtime="20221011 09:00:51.269"/>
+</kw>
+<kw name="Input Username" library="LoginPage">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LoginEmailInputBox}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221011 09:00:51.272" level="INFO">Typing text 'admin@email.com' into text field 'id::r0:'.</msg>
+<status status="PASS" starttime="20221011 09:00:51.271" endtime="20221011 09:00:51.563"/>
+</kw>
+<status status="PASS" starttime="20221011 09:00:51.270" endtime="20221011 09:00:51.563"/>
+</kw>
+<kw name="Input Password" library="LoginPage">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LoginPasswordInputBox}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221011 09:00:51.566" level="INFO">Typing text 'thisisverysecure' into text field 'id::r1:'.</msg>
+<status status="PASS" starttime="20221011 09:00:51.565" endtime="20221011 09:00:51.822"/>
+</kw>
+<status status="PASS" starttime="20221011 09:00:51.564" endtime="20221011 09:00:51.822"/>
+</kw>
+<kw name="Click Login" library="LoginPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LoginButton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221011 09:00:51.824" level="INFO">Clicking element '//button[contains(text(),'Log in')]'.</msg>
+<status status="PASS" starttime="20221011 09:00:51.823" endtime="20221011 09:00:51.958"/>
+</kw>
+<status status="PASS" starttime="20221011 09:00:51.823" endtime="20221011 09:00:51.958"/>
+</kw>
+<kw name="Switch to dark mode and verify" library="Dashboard">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${LightModeIcon}</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221011 09:00:51.960" endtime="20221011 09:00:52.014"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221011 09:00:53.015" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221011 09:00:52.014" endtime="20221011 09:00:53.015"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LightModeIcon}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221011 09:00:53.016" level="INFO">Clicking element '//*[@data-testid='LightModeOutlinedIcon']/..'.</msg>
+<status status="PASS" starttime="20221011 09:00:53.015" endtime="20221011 09:00:53.798"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221011 09:00:54.805" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221011 09:00:53.798" endtime="20221011 09:00:54.805"/>
+</kw>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<arg>${LightModeIcon}</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<msg timestamp="20221011 09:00:54.824" level="INFO">Element '//*[@data-testid='LightModeOutlinedIcon']/..' did not exist.</msg>
+<status status="PASS" starttime="20221011 09:00:54.805" endtime="20221011 09:00:54.824"/>
+</kw>
+<status status="PASS" starttime="20221011 09:00:51.959" endtime="20221011 09:00:54.824"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20221011 09:00:54.825" endtime="20221011 09:00:56.942"/>
+</kw>
+<doc>This test case verifies if a user is able to switch from light to dark mode</doc>
+<tag>Regression</tag>
+<status status="PASS" starttime="20221011 09:00:48.031" endtime="20221011 09:00:56.944"/>
+</test>
+<doc>Successful/Unsuccesful Login Tests</doc>
+<status status="PASS" starttime="20221011 09:00:37.145" endtime="20221011 09:00:56.945"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">Regression</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="DashboardTest">DashboardTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
